@@ -7,3 +7,4 @@
 _freeze/
 _site/
 .ipynb_checkpoints/
+.venv/
