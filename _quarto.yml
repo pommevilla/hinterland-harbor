@@ -1,0 +1,28 @@
+project:
+  type: site
+  title: "Hinterland Harbor"
+  output-dir: ./_site
+
+site:
+  title: "Quarto + RMD + Github Pages Test"
+  sharing: [twitter, facebook, linkedin]
+  repo-url: https://github.com/pommevilla/hinterland-harbor
+  sidebar:
+    style: "docked"
+    background: light
+    search: true
+    collapse-level: 2
+    tools:
+      - icon: github
+        href: https://github.com/pommevilla/hinterland-harbor
+    contents:
+      - index.qmd
+      - sample_analysis.qmd
+      - rosalind_problems.ipynb
+
+format:
+  html:
+    theme: cosmo
+    code-background: true
+    css: styles.css
+    toc: true
