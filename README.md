@@ -1,4 +1,4 @@
-# Crop Priming
+# `quarto-render` Github action demonstration: a non-frozen project.
 
 Demonstration of the `quarto-render` ([link](https://github.com/pommevilla/quarto-render)) Github action on a Quarto project [without freeze](https://quarto.org/docs/books/book-authoring.html?q=freeze#freezing). 
 
