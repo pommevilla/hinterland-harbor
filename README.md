@@ -34,11 +34,13 @@ jobs:
     - name: "Install Python deps"
       run: |
         pip install -r requirements.txt
+
     - uses: r-lib/actions/setup-r@v1
 
     - name: "Install curl for Bioconductor"
       run: |
         sudo apt -y install libcurl4-openssl-dev
+
     - name: "Install R Packages: Cache packages"
       uses: actions/cache@v1
       with:
@@ -46,11 +48,13 @@ jobs:
         key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
         restore-keys: |
           ${{ runner.os }}-renv-
+
     - name: "Install R Packages: Restore packages"
       shell: Rscript {0}
       run: |
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
         renv::restore()
+        
     - name: "Install Quarto and render"
       uses: pommevilla/quarto-render@main
 
