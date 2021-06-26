@@ -167,7 +167,7 @@
   <a href="./index.html" class="active">`quarto-render` Github action demonstration: a non-frozen project.</a>
 </li>
       <li class="sidebar-item">
-  <a href="./rosalind_problems.html" class="">Some graphics</a>
+  <a href="./sample_python.html" class="">Some graphics</a>
 </li>
   </ul>
   </div>
@@ -257,7 +257,8 @@
 <ul>
 <li>You have to version control any data sets that are used in the computation of your documents, which can be quite large.</li>
 <li>While it is good practice to version control your package dependencies, restoring them during the Github workflow creates additional opportunities for failure, especially if you are using non-CRAN libraries such as those from <a href="https://www.bioconductor.org/">Bioconductor</a>.</li>
-<li>Restoring packages from within a workflow can take a significant amount of time for more complicated projects, drastically reducing the speed at which you can troubleshoot and iterate documents.</li>
+<li>Restoring packages in a workflow from <code>renv</code> can take a significant amount of time on the initial run. While future workflows will finish more quickly by taking advantage of the package cache, the initial run can take quite a bit of time to complete, making it difficult to troubleshoot. For example, the initial render of this repository took <a href="https://github.com/pommevilla/hinterland-harbor/runs/2919380857?check_suite_focus=true">over 45 minutes</a>.</li>
+<li>The documents are being recomputed at render time. This means that if you have a document with a lot of expensive computations, it will take longer to complete a workflow and see your results. As a comparison, after the initial cache is created by <code>renv</code>, running a <code>quarto-render</code> workflow <a href="https://github.com/pommevilla/hinterland-harbor/runs/2921322559?check_suite_focus=true">takes about 2 minutes</a>, while a <a href="https://github.com/pommevilla/friendly-dollop/blob/master/.github/workflows/quarto-render.yml">similar workflow</a> that takes advantage of <code>freeze</code> finishes rendering its documents in <a href="https://github.com/pommevilla/friendly-dollop/runs/2917945915?check_suite_focus=true">under 30 seconds</a>, even though it contains more documents with more computations.</li>
 </ul>
 <p>For these reasons, it is suggested that you take advantage of the <code>freeze</code> execution mode for your Quarto projects. See <a href="https://github.com/pommevilla/friendly-dollop">this repo</a> for an example Quarto project that used <code>freeze</code> and <code>quarto-render</code> to simplify the Github page publishing process.</p>
 <!-- -->
