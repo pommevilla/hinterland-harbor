@@ -54,7 +54,7 @@ jobs:
       run: |
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
         renv::restore()
-        
+
     - name: "Install Quarto and render"
       uses: pommevilla/quarto-render@main
 
@@ -75,6 +75,6 @@ While it is an option to use `quarto-render` without freeze in this way, it is g
 * You have to version control any data sets that are used in the computation of your documents, which can be quite large.
 * While it is good practice to version control your package dependencies, restoring them during the Github workflow creates additional opportunities for failure, especially if you are using non-CRAN libraries such as those from [Bioconductor](https://www.bioconductor.org/). 
 * Restoring packages in a workflow from `renv` can take a significant amount of time on the initial run. While future workflows will finish more quickly by taking advantage of the package cache, the initial run can take quite a bit of time to complete, making it difficult to troubleshoot. For example, the initial render of this repository took [over 45 minutes](https://github.com/pommevilla/hinterland-harbor/runs/2919380857?check_suite_focus=true).
-* The documents are being recomputed at render time. This means that if you have a document with a lot of expensive computations, it will take longer to complete a workflow and see your results. As a comparison, after the initial cache is created by `renv`, running a `quarto-render` workflow [takes about 2 minutes](https://github.com/pommevilla/hinterland-harbor/runs/2921322559?check_suite_focus=true), while a [similar workflow](https://github.com/pommevilla/friendly-dollop/blob/master/.github/workflows/quarto-render.yml) that takes advantage of `freeze` finishes rendering its documents in [under 30 seconds](https://github.com/pommevilla/friendly-dollop/runs/2917945915?check_suite_focus=true), even though it contains more documents with more computations.
+* The documents are recomputed at render time. This means that if you have a document with a lot of expensive computations, it will take longer to complete a workflow and see your results. As a comparison, after the initial cache is created by `renv`, running a `quarto-render` workflow [takes about 2 minutes](https://github.com/pommevilla/hinterland-harbor/runs/2921322559?check_suite_focus=true), while a [similar workflow](https://github.com/pommevilla/friendly-dollop/blob/master/.github/workflows/quarto-render.yml) that takes advantage of `freeze` finishes rendering its documents in [under 30 seconds](https://github.com/pommevilla/friendly-dollop/runs/2917945915?check_suite_focus=true), even though it contains more documents with more computations.
 
 For these reasons, it is suggested that you take advantage of the `freeze` execution mode for your Quarto projects. See [this repo](https://github.com/pommevilla/friendly-dollop) for an example Quarto project that used `freeze` and `quarto-render` to simplify the Github page publishing process.

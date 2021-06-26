@@ -7,18 +7,24 @@ site:
   title: "Quarto + RMD + Github Pages Test"
   sharing: [twitter, facebook, linkedin]
   repo-url: https://github.com/pommevilla/hinterland-harbor
-  sidebar:
-    style: "docked"
-    background: light
-    search: true
-    collapse-level: 2
-    tools:
+
+  navbar:
+    background: "dark"
+    right:
+      - text: "Home"
+        href: index.qmd
+      - text: "Sample biodiversity analysis in R"
+        href: sample_analysis.Rmd
+      - text: "A simple Python notebook"
+        href: sample_python.ipynb
+      - text: "More about Quarto"
+        menu:
+        - text: "Quarto.org"
+          url: https://quarto.org/
+        - text: "quarto-render Github action"
+          url: https://github.com/pommevilla/quarto-render
       - icon: github
         href: https://github.com/pommevilla/hinterland-harbor
-    contents:
-      - index.qmd
-      - sample_analysis.qmd
-      - sample_python.ipynb
 
 format:
   html:
