@@ -64,7 +64,7 @@ jobs:
 
 The final results can be viewed [https://pommevilla.github.io/hinterland-harbor/](here).
 
-## Caution
+## You should probably use `freeze`
 
 While it is an option to use `quarto-render` without freeze in this way, it is generally not recommended for a few reasons:
 
