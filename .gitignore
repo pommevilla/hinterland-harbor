@@ -1,7 +1,6 @@
 .Rproj.user
 .Rhistory
 *Rproj
-*.R
 /.quarto/
 *_cache/
 _freeze/
