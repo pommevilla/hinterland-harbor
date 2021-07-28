@@ -15,7 +15,7 @@ Below is the workflow used in this directory to restore the Python and R depende
 ## Github Workflow
 
 ```yaml
-.github/workflows/
+# .github/workflows/render-and-deploy.yml
 name: Render and deploy Quarto files
 on: 
   push:
